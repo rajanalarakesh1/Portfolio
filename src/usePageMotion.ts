@@ -17,7 +17,7 @@ export function usePageMotion(root: RefObject<HTMLDivElement>, enabled: boolean,
       if (!enabled) return
       gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom 35%',scrub:.65}})
         .fromTo('.hero h1',{yPercent:0,scale:1,opacity:1},{yPercent:-25,scale:.93,opacity:0,duration:1,ease:'power2.in',immediateRender:false},0)
-        .fromTo('.hero-kicker,.hero-foot',{y:0,opacity:1},{y:-35,opacity:0,duration:.5,immediateRender:false},.25)
+        .fromTo('.hero-foot',{y:0,opacity:1},{y:-35,opacity:0,duration:.5,immediateRender:false},.25)
       gsap.fromTo('.work-intro-foot,.work-heading',{y:0,opacity:1},{y:-65,opacity:0,stagger:.08,ease:'none',immediateRender:false,scrollTrigger:{trigger:'.work-intro',start:'bottom 85%',end:'bottom 20%',scrub:.65}})
       const approach = gsap.timeline({scrollTrigger:{trigger:'.approach',start:'top top',end:'bottom bottom',scrub:.65}})
       approach.fromTo('.approach h2',{y:0,autoAlpha:1},{y:-45,autoAlpha:0,duration:.15,immediateRender:false},.28)
@@ -34,7 +34,6 @@ export function usePageMotion(root: RefObject<HTMLDivElement>, enabled: boolean,
       // Keep the last entry readable through the final quarter of the pinned scene.
       experience.to({}, {duration:.03},.97)
       gsap.fromTo('.contact-pin > a',{y:100,rotateX:-18,opacity:.1},{y:0,rotateX:0,opacity:1,ease:'power3.out',scrollTrigger:{trigger:'.contact',start:'top 90%',end:'top top',scrub:.7}})
-      gsap.fromTo('.contact-foot',{y:40,opacity:0},{y:0,opacity:1,scrollTrigger:{trigger:'.contact',start:'top 25%',end:'top top',scrub:.5}})
     }, root)
     // Individual CSS translate composes with the scroll timelines' transforms.
     const movingText = root.current?.querySelectorAll<HTMLElement>('.hero h1, .work-heading, .case-title, .case-intro-copy, .case-detail h3, .approach h2, .approach-notes, .experience-item h3, .contact-pin > a')

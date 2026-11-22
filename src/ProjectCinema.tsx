@@ -7,6 +7,7 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
 import fontData from 'three/examples/fonts/optimer_bold.typeface.json'
 import SkillSculpture from './SkillSculptures'
+import RepositorySculpture from './RepositorySculptures'
 
 export type CinemaPose = { chapter: number; progress: number }
 type SceneProps = { pose: MutableRefObject<CinemaPose>; motion: boolean }
@@ -273,6 +274,7 @@ export default function ProjectCinema({pose,motion}:SceneProps) {
     <WebGLBoundary><Canvas shadows dpr={[1,1.5]} frameloop={visible&&awake?'always':'never'} camera={{position:[-4,4.5,12.5],fov:40,near:.1,far:80}} gl={{alpha:true,antialias:true,powerPreference:'high-performance'}}>
       <Lighting/><CameraRig pose={pose} motion={motion}/><MonogramJourney pose={pose} motion={motion}/>
       <Forecast pose={pose} motion={motion}/><Sales pose={pose} motion={motion}/><Charging pose={pose} motion={motion}/><Automation pose={pose} motion={motion}/>
+      <RepositorySculpture kind="jobs" pose={pose} motion={motion}/><RepositorySculpture kind="portfolio" pose={pose} motion={motion}/>
       {[0,1,2,3].map(kind=><SkillSculpture key={kind} kind={kind} pose={pose} motion={motion}/>)}
     </Canvas></WebGLBoundary>
     <div className="cinema-shade"/>

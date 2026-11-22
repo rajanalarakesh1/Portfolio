@@ -93,3 +93,52 @@ html { scroll-padding-top:80px; }
  .experience-item p{font-size:21px; }
  .approach-notes div p{font-size:19px; }.approach-notes h3{font-size:28px; }
 }
+
+
+/* Captions are removed; keep the remaining content in explicit layout slots. */
+.hero-copy { grid-template-rows:minmax(0,1fr) auto; }
+.hero h1 { min-width:0; }
+.contact-foot { justify-content:flex-start; }
+.case-intro-copy { overflow-wrap:break-word; }
+.case-detail { padding-bottom:20px; }
+.case-bottom { gap:24px; }
+@media(max-width:900px) and (min-height:561px) {
+ .skill-chapter .case-intro { top:40%; }
+ .skill-chapter .case-detail { top:39%; }
+ .case-detail h3 { text-wrap:balance; }
+}
+
+
+/* Keep both title lines together, with space reserved for the project navigation. */
+.work-intro-pin {
+ display:grid;
+ grid-template-rows:minmax(0,1fr) auto;
+ align-items:center;
+ align-content:stretch;
+ gap:clamp(18px,3vh,36px);
+}
+.work-heading {
+ align-self:center;
+ margin:0;
+ line-height:.98;
+ overflow:visible;
+ font-size:clamp(76px,min(12vw,19svh),220px);
+}
+.work-heading-copy,.work-heading-copy > span { display:block; }
+.work-intro-foot { align-self:end; }
+.work-intro nav { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 28px; margin:0; }
+.contact-pin { display:grid;grid-template-rows:auto minmax(0,1fr);gap:30px; }
+.contact-pin > a { align-self:center; }
+@media(max-width:900px) and (min-height:561px) {
+ .work-intro-pin { padding:85px 6vw 30px;gap:18px; }
+ .work-heading { font-size:clamp(60px,min(18vw,15svh),130px); }
+ .work-intro-foot > p { font-size:clamp(14px,2.3vw,18px);max-width:45ch; }
+ .work-intro nav { margin-top:18px;gap:8px 16px;font-size:13px; }
+}
+@media(max-height:560px) {
+ .work-intro-pin { padding:70px 5vw 20px;gap:12px; }
+ .work-heading { font-size:clamp(42px,min(10vw,16svh),84px); }
+ .work-intro-foot { gap:24px; }
+ .work-intro-foot > p { font-size:12px;max-width:38ch; }
+ .work-intro nav { font-size:11px;gap:5px 16px;min-width:0; }
+}
