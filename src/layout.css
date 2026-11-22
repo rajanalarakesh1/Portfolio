@@ -42,7 +42,7 @@
 .skill-list dd { margin: 0; }
 .skill-list strong { font-size: clamp(19px, 2vw, 32px); line-height: 1.15; letter-spacing: -.04em; }
 .skill-list p { max-width: 40ch; margin: 9px 0 0; line-height: 1.45; }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .hero h1 { font-size: 20.3vw; }
   .hero-foot { align-items: end; }
   .hero-foot a { white-space: nowrap; font-size: 10px; }
@@ -81,7 +81,6 @@
 .hero { height: 155svh; overflow: clip; }
 .hero-copy { position: sticky; top: 0; overflow: hidden; }
 .hero-name { display: inline-block; }
-.hero-letter { display: inline-block; transform-origin: 50% 100%; }
 .hero h1 { perspective: 900px; }
 .hero h1 em { display: inline-block; transform-origin: 50% 70%; }
 .hero-line { background: currentColor; }
@@ -139,7 +138,7 @@
 .hero-line { opacity: .4; }
 .hero h1 { pointer-events: none; }
 .monogram-stage canvas { touch-action: pan-y; }
-@media (max-width:700px) {
+@media (max-width:900px) {
   .hero h1 { font-size: 19vw; margin-bottom: 24px; }
   .monogram-stage { inset: 3% -5% 12%; }
   .hero-copy { padding-top: 100px; }

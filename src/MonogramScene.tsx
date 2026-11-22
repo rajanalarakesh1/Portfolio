@@ -1,5 +1,5 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
@@ -84,12 +84,21 @@ function Sculpture({ progress, motion }: { progress: number; motion: boolean }) 
 }
 
 export default function MonogramScene({ progress, motion }: { progress: number; motion: boolean }) {
-  return <Canvas
+  const stage = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(true)
+  useEffect(() => {
+    if (!stage.current) return
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting))
+    observer.observe(stage.current)
+    return () => observer.disconnect()
+  }, [])
+  return <div ref={stage} style={{ height: '100%' }}><Canvas
+    frameloop={visible ? 'always' : 'never'}
     dpr={[1, 1.5]}
     camera={{ position: [0, 0, 8.8], fov: 42 }}
     gl={{ antialias: true, alpha: true }}
     aria-label="Three-dimensional copper R monogram"
   >
     <Sculpture progress={progress} motion={motion} />
-  </Canvas>
+  </Canvas></div>
 }

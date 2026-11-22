@@ -1,0 +1,95 @@
+/* Final viewport rules, shared with the canvas's 900px / 560px framing cutoffs. */
+html { scroll-padding-top:80px; }
+.hero-copy { min-height:100svh; }
+.site main { min-width:0; }
+.site-nav a,.index-button,.motion-toggle { min-height:44px; }
+.topbar { padding-left:max(5vw,env(safe-area-inset-left)); padding-right:max(5vw,env(safe-area-inset-right)); }
+.case-bottom { bottom:max(22px,env(safe-area-inset-bottom)); }
+.contact-foot { flex-wrap:wrap; gap:16px 28px; line-height:1.6; }
+.case-title,.experience-item h3,.case-detail h3 { overflow-wrap:normal; }
+.approach .narrative-pin,.experience .narrative-pin { min-height:100svh; }
+@media(min-width:901px) {
+ .hero h1 { font-size:clamp(88px,12vw,240px); }
+ .case-intro { width:49%; }
+ .case-title { font-size:clamp(58px,7.7vw,154px); }
+ .case-detail { width:40%; }
+ .case-detail h3 { font-size:clamp(34px,3.8vw,70px); }
+ .case-intro-copy { max-width:90%; }
+ .skill-chapter .case-top nav { gap:clamp(12px,1.8vw,28px); }
+}
+@media (max-width:900px) and (min-height:561px) {
+ .hero-copy { padding-top:90px; }
+ .case-sticky { min-height:100svh; }
+ .case-intro,.project-gallery .case-intro { top:43%;left:6vw;width:88%; }
+ .case-detail,.project-gallery .case-detail { top:42%;left:6vw;width:88%; }
+ .case-title,.project-gallery .case-title,.skill-chapter .case-title { font-size:clamp(44px,12.5vw,90px); }
+ .case-detail h3,.project-gallery .case-detail h3,.skill-chapter .case-detail h3 { font-size:clamp(28px,7vw,46px); }
+ .case-intro-copy,.project-gallery .case-intro-copy { width:46ch; max-width:100%; }
+ .case-top { top:80px; }
+ .skill-chapter .case-top nav { gap:8px 16px; }
+ .skill-chapter .case-top nav a { padding-block:5px; }
+ .work-heading { font-size:clamp(70px,18vw,140px); }
+ .site[data-motion="reduced"] .case-intro,.site[data-motion="reduced"] .case-detail { position:relative;inset:auto;width:100%; }
+ .site[data-motion="reduced"] .case-sticky { padding-top:42svh; }
+}
+@media (max-width:900px) and (min-height:561px) and (max-height:740px) {
+ .case-intro,.project-gallery .case-intro { top:40%; }
+ .case-detail,.project-gallery .case-detail { top:39%; }
+ .case-title,.project-gallery .case-title,.skill-chapter .case-title { font-size:clamp(40px,11vw,66px); }
+ .case-intro-copy { margin-top:14px; }
+ .case-intro-copy p { font-size:14px;line-height:1.45;margin:8px 0; }
+ .case-intro-copy .case-lead { font-size:17px; }
+ .case-detail h3,.project-gallery .case-detail h3,.skill-chapter .case-detail h3 { font-size:28px;margin:10px 0; }
+ .case-detail > p:not(.eyebrow) { font-size:14px;line-height:1.45; }
+ .case-steps { margin-top:12px; }.case-steps li { padding:6px 0;font-size:13px; }
+ .case-bottom { bottom:14px; }
+ .approach-notes { top:22%; }.approach-notes>p{font-size:15px}.approach-notes div{padding:8px 0}
+}
+@media(max-width:380px) {
+ .hero-foot { flex-wrap:wrap;gap:14px; }.hero-foot p{max-width:30ch; }
+ .hero-kicker { font-size:9px; }.hero h1{font-size:17vw; }
+ .motion-toggle { right:70px;font-size:9px;padding-inline:8px; }
+ .skill-chapter .case-top nav { font-size:9px;gap:4px 12px; }
+ .experience-item h3 { font-size:27px; }.experience-item span{font-size:28px; }
+ .contact-foot { font-size:10px; }
+}
+/* Landscape phones and short windows use side-by-side art and text. */
+@media(max-height:560px) {
+ .topbar { height:58px; }
+ .hero-copy { padding:72px 5vw 20px;min-height:100svh; }
+ .hero h1 { font-size:min(12vw,27svh);margin-bottom:18px; }
+ .hero-foot p { font-size:13px;max-width:40ch; }.hero-foot a{font-size:10px; }
+ .case-sticky { min-height:100svh; }
+ .case-top,.skill-chapter .case-top { top:65px;left:5vw;right:5vw;font-size:10px; }
+ .skill-chapter .case-top { display:flex;align-items:start;gap:16px; }
+ .skill-chapter .case-top nav { margin:0;gap:6px 12px;font-size:9px;max-width:55%;justify-content:flex-end; }
+ .case-intro,.project-gallery .case-intro { top:25%;left:5vw;width:47%; }
+ .case-title,.project-gallery .case-title,.skill-chapter .case-title { font-size:clamp(30px,6.3vw,68px); }
+ .case-intro-copy,.project-gallery .case-intro-copy { width:100%;max-width:100%;margin-top:12px; }
+ .case-intro-copy p { font-size:12px;line-height:1.4;margin:6px 0; }
+ .case-intro-copy .case-lead { font-size:15px; }
+ .case-detail,.project-gallery .case-detail { top:23%;left:5vw;width:46%; }
+ .case-detail h3,.project-gallery .case-detail h3,.skill-chapter .case-detail h3 { font-size:25px;margin:8px 0; }
+ .case-detail > p:not(.eyebrow) { font-size:12px;line-height:1.4; }
+ .case-detail .eyebrow { font-size:9px; }
+ .case-steps { margin-top:8px; }.case-steps li { font-size:12px;padding:5px 0; }
+ .case-bottom { bottom:12px;font-size:10px; }
+ .cinema-shade { background:linear-gradient(90deg,#161512cc,transparent 60%); }
+ .work-intro-pin { padding:75px 5vw 20px;gap:14px; }.work-heading{font-size:min(12vw,25svh);margin:0; }
+ .work-intro .eyebrow { position:static; }.work-intro-foot{display:flex;gap:25px; }.work-intro-foot>p{font-size:14px;max-width:38ch; }.work-intro nav{margin:0;font-size:12px; }
+ .approach .narrative-pin,.experience .narrative-pin { padding:75px 5vw 20px;min-height:100svh;height:100svh; }
+ .approach .eyebrow { top:68px; }.approach .narrative-pin>h2{top:25%;font-size:min(8vw,18svh); }
+ .approach-notes { top:24%;display:grid;grid-template-columns:repeat(3,1fr);gap:10px 24px;width:90%!important; }.approach-notes>p{font-size:14px;margin-bottom:8px; }.approach-notes h3{font-size:17px; }.approach-notes div p{font-size:12px; }.approach-notes div{padding:4px 0; }
+ .experience h2{font-size:29px;margin:0; }.experience .experience-list{position:relative;inset:auto;margin-top:24px;width:100%;min-height:240px; }
+ .experience-item{gap:10px; }.experience-item span{font-size:27px; }.experience-item h3{font-size:26px;max-width:40ch; }.experience-item p{font-size:13px; }
+ .contact-pin{padding:75px 5vw 20px;min-height:100svh; }.contact-pin>a{font-size:min(9vw,20svh);margin-top:0; }.contact-pin>p{font-size:11px; }.contact-foot{font-size:10px; }
+ .site[data-motion="reduced"] .case-sticky { padding:100px 5vw 50px; }
+ .site[data-motion="reduced"] .case-intro,.site[data-motion="reduced"] .case-detail { position:relative;inset:auto;width:48%; }
+}
+@media(min-width:2000px) {
+ .case-intro-copy p,.case-detail>p:not(.eyebrow){font-size:20px; }
+ .case-top,.case-bottom,.case-steps li span{font-size:15px; }
+ .case-steps li{font-size:20px; }
+ .experience-item p{font-size:21px; }
+ .approach-notes div p{font-size:19px; }.approach-notes h3{font-size:28px; }
+}

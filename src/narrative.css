@@ -1,0 +1,100 @@
+/* Typography and transitions across the narrative sections. */
+.hero h1 { display:flex; align-items:baseline; gap:.16em; }
+.hero h1 em { margin:0; }
+.hero-name { flex:none; }
+.approach { height:250svh; }
+.approach .narrative-pin { display:block; height:100svh; min-height:650px; }
+.approach .eyebrow { position:absolute; top:110px; left:5vw; width:auto; }
+.approach .narrative-pin > h2 { position:absolute; top:27%; left:5vw; width:45%; font-size:clamp(52px,6vw,108px); }
+.approach-notes { position:absolute; top:25%; left:5vw; width:42%!important; visibility:hidden; }
+.approach-notes > p { font-size:clamp(16px,1.3vw,20px); max-width:40ch; }
+.approach-notes div { padding:12px 0; }
+.approach-notes div p { font-size:15px; }
+.experience { height:350svh; }
+.experience .narrative-pin { height:100svh; min-height:650px; justify-content:flex-start; }
+.experience h2 { font-size:clamp(42px,4vw,72px); max-width:48%; margin:0; }
+.experience h2 em { display:block; }
+.experience .experience-list { position:relative; margin-top:8vh; width:43%; min-height:340px; }
+.experience-item { position:absolute; inset:0; display:flex; flex-direction:column; gap:16px; padding:0; visibility:hidden; }
+.experience-item:first-child { visibility:visible; }
+.experience-item span { color:#e5b28b; font:400 clamp(30px,3.8vw,64px)/1.1 'DM Mono',monospace; letter-spacing:-.07em; }
+.experience-item h3 { font-size:clamp(28px,3vw,48px); line-height:1.12; }
+.experience-item p { font-size:clamp(15px,1.2vw,18px); max-width:36ch; line-height:1.6; }
+.experience-item:hover > div { translate:none; }
+.contact-pin > a { width:55%; font-size:clamp(64px,8vw,140px); }
+.contact-pin > a span { display:inline-block; transition:transform .4s; }
+.contact-pin > a:hover span { transform:translate(8px,-8px); }
+.site[data-motion="reduced"] .approach .narrative-pin { height:auto; padding-block:130px 80px; }
+.site[data-motion="reduced"] .approach h2,.site[data-motion="reduced"] .approach-notes { position:relative; inset:auto; visibility:visible; }
+.site[data-motion="reduced"] .approach .eyebrow { position:relative; inset:auto; }
+.site[data-motion="reduced"] .experience .narrative-pin { height:auto; }
+.site[data-motion="reduced"] .experience-item { position:relative; inset:auto; visibility:visible; padding:25px 0; }
+@media (max-height:720px) and (min-width:901px) {
+ .approach .narrative-pin,.experience .narrative-pin { min-height:520px; }
+ .approach .eyebrow { top:85px; }
+ .approach-notes { top:22%; }.approach-notes div{padding:7px 0}.approach-notes div p{font-size:13px}
+ .experience .experience-list { margin-top:30px; }.experience-item h3{font-size:28px}.experience-item span{font-size:36px}.experience-item p{font-size:14px}
+}
+@media(max-width:900px) {
+ .hero h1{font-size:17.5vw;gap:.13em}
+ .approach{height:260svh;overflow:clip}.approach .narrative-pin{position:sticky;top:0;min-height:740px;padding:0}
+ .approach .eyebrow{top:80px;left:6vw;font-size:11px}
+ .approach .narrative-pin > h2{top:51%;left:6vw;width:88%;font-size:13vw}
+ .approach-notes{top:44%;left:6vw;width:88%!important}.approach-notes>p{font-size:14px;margin-bottom:10px}.approach-notes div{padding:7px 0}.approach-notes h3{font-size:20px}.approach-notes div p{font-size:13px}
+ .experience{height:340svh;overflow:clip}.experience .narrative-pin{position:sticky;top:0;height:100svh;min-height:740px;padding:80px 6vw 30px}
+ .experience h2{font-size:29px;max-width:100%;width:100%}.experience h2 em{display:inline}
+ .experience .experience-list{position:absolute;top:50%;left:6vw;margin:0;width:88%;min-height:300px}.experience-item{gap:14px}.experience-item span{font-size:34px}.experience-item h3{font-size:29px}.experience-item p{font-size:15px}
+ .contact-pin>a{width:100%;font-size:15vw;margin-top:30svh}
+ .site[data-motion="reduced"] .approach .narrative-pin{padding:50svh 6vw 70px}.site[data-motion="reduced"] .experience .narrative-pin{padding-top:50svh}.site[data-motion="reduced"] .experience .experience-list{position:relative;inset:auto;margin-top:30px;width:100%}
+}
+
+/* Project copy moves through the same depth cues as the camera. */
+.project-gallery .case-sticky { perspective:1100px; perspective-origin:65% 45%; }
+.project-gallery .case-intro,.project-gallery .case-detail { transform-origin:0 50%; backface-visibility:hidden; }
+.project-gallery .case-bottom { justify-content:flex-end; }
+.skill-chapter .case-bottom { justify-content:flex-end; }
+.project-gallery .case-intro-copy { max-width:90%; }
+.site[data-motion="reduced"] .project-gallery .case-sticky { perspective:none; padding-top:120px; }
+.site[data-motion="reduced"] .project-gallery .case-bottom { position:relative; inset:auto; margin-top:45px; justify-content:flex-start; }
+@media (min-width:901px) and (max-width:1000px) {
+ .project-gallery .case-intro{width:48%;top:24%}
+ .project-gallery .case-title{font-size:7.7vw}
+ .project-gallery .case-intro-copy{max-width:95%;width:30ch}
+ .project-gallery .case-detail{width:44%}
+ .project-gallery .case-detail h3{font-size:4.6vw}
+ .project-gallery .case-detail>p:not(.eyebrow){font-size:15px}
+}
+@media(max-width:900px) {
+ .site[data-motion="reduced"] .project-gallery .case-sticky { padding-top:43svh; }
+}
+
+
+/* Small whole-line motion keeps letter baselines intact. */
+.site[data-motion="full"] .text-alive {
+  animation: text-breathe 5.5s ease-in-out var(--text-phase,0s) infinite alternate;
+  /* The explicit Motion on choice overrides the system default for this effect. */
+  animation-duration:5.5s!important;
+  animation-iteration-count:infinite!important;
+}
+@keyframes text-breathe { from { translate:0 2px; } to { translate:0 -4px; } }
+.site[data-motion="reduced"] .text-alive { animation:none; translate:none; }
+.approach .narrative-pin > h2 { width:85%; font-size:clamp(64px,8vw,136px); top:24%; }
+.approach-notes { width:80%!important; max-width:1000px; display:grid; grid-template-columns:repeat(3,1fr); gap:24px 40px; }
+.approach-notes > p { grid-column:1/-1; max-width:62ch; font-size:clamp(18px,1.6vw,25px); }
+.experience h2 { max-width:100%; width:100%; }
+.experience h2 em { display:inline; }
+.experience .experience-list { width:85%; }
+.experience-item h3 { max-width:26ch; font-size:clamp(30px,4vw,64px); }
+.experience-item p { max-width:60ch; }
+.contact-pin > a { width:100%; font-size:clamp(64px,11vw,185px); }
+@media(max-width:900px) {
+ .approach .narrative-pin > h2 { top:27%; width:88%; font-size:14vw; }
+ .approach-notes { display:block; top:24%; width:88%!important; }
+ .approach-notes > p { font-size:17px; }
+ .approach-notes div { padding:12px 0; }
+ .experience .experience-list { top:30%; width:88%; }
+ .experience-item h3 { font-size:32px; }
+ .contact-pin > a { font-size:15vw; margin-top:0; }
+ .site[data-motion="reduced"] .approach .narrative-pin { padding-top:110px; }
+ .site[data-motion="reduced"] .experience .narrative-pin { padding-top:110px; }
+}
